@@ -8,46 +8,36 @@ int main()
 {
 	setlocale(LC_ALL, "Russian");
 	
-	int size;
-	cin >> size;
-	int* ptr = new int[size];
-	for (int i = 0; i < size; i++)
-	{
-		ptr[i] = i + rand() % 100
-	}
-	Stack<int>mystack1(size);
-	stack<int>mystack2;
-
-	for (int i = 0; i < size; i++)
-	{
-		cout << ptr[i] << " ";
-		mystack2.push(ptr[i]);
-		mystack1.push(ptr[i]);
-	}
+	int size = 3;
 	
-	cout << "\n";
-	for (int i = mystack1.GetFirst(); i < mystack1.GetSize(); i++)
-	{
-		cout << mystack1.pop() << " ";
-	}
-	cout << "\n";
-	for (int i = 0; i < size; i++)
-	{
-		cout << mystack2.top()<<" ";
-		mystack2.pop();
-	}
+	Queue<int> q(size);
+	Stack<int> s(size);
 
-	int a1[10];
-	Queue<int>queue(10);
-	for (int i = 0; i < 10; i++)
-	{
-		a1[i] = i;
-		queue.push(a1[i]);
-	}
-	for (int i = 0; i < queue.GetSize(); i++)
-	{
-		cout << queue.pop() << "\n";
+	int m = 12;
+	int n = 13;
+	int p = 15;
+
+	q.push(m);
+	q.push(n);
+	q.push(p);
+
+	s.push(m);
+	s.push(n);
+	s.push(p);
+
+	cout << "удаление елементов в очереди ";
+
+	cout << q.pop() << "\n";
+	cout << q.pop() << "\n";
+	cout << q.pop() << "\n";
+
+	cout << "удаление элементов в стеке ";
+
+	cout << s.pop() << "\n";
+	cout << s.pop() << "\n";
+	cout << s.pop() << "\n";
 	
+	return 0;
 }
 
 

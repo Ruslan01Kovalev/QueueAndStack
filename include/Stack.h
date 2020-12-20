@@ -79,6 +79,58 @@ public:
 		DataCount--;
 		return (*tmp);
 	}
+
+	T& Max()
+	{
+		if (DataCount == 0) throw logic_error("empty stack");
+		if (Array == 0) throw logic_error("memory error");
+
+		T* max = Array[first];
+
+		for (int i = 1; i < DataCount; i++)
+			if (*Array[i] > (*max))
+				max = Array[i];
+
+		return max;
+	}
+
+	T& Min()
+	{
+		if (DataCount == 0) throw logic_error("empty stack");
+		if (Array == 0) throw logic_error("memory error");
+
+		T* min = Array[first];
+
+		for (int i = first; i < DataCount; i++)
+			if ((*Array[i]) < (*min))
+				min = Array[i];
+
+		return min;
+	}
+
+	int find(T& Elem)
+	{
+		if (DataCount == 0) throw logic_error("empty stack");
+		if (Array == 0) throw logic_error("memory error");
+
+		int pos = 0;
+		bool good = false;
+
+		for (int i = first; i < DataCount; i++)
+		{
+			if ((*Array[i]) == (*Elem));
+			{
+				pos = i;
+				good = true;
+			}
+		}
+
+		if (good == true)
+			return pos;
+		else
+			return -1;
+	}
+
 	int GetSize(){return size;}
 	bool IsEmpty() { return(DataCount == 0); }
 	bool IsFull() { return(DataCount == size); }
